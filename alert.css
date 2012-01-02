@@ -1,0 +1,72 @@
+/* #Alert -------------------------------------------------------------- */
+
+#Alert {
+    font: 15px/20px normal;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+#Alert.ie {
+    position: absolute;
+}
+#Alert * {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+}
+#Alert .cover {
+    background-color: #333;
+    height: 100%;
+    opacity: .3;
+    width: 100%;
+}
+#Alert.ie .cover {
+	filter: alpha(opacity=30);
+    height: 75em;
+    width: 150em;
+}
+#Alert .main {
+    background-color: #fff;
+    border: 1px outset #666;
+    left: 33%;
+    top: 33%;
+    width: 33%;
+    position: relative;
+}
+#Alert .main .timer {
+    background-color: #999;
+    font-weight: bold;
+    height: 2em;
+    top: 0;
+    left: 0;
+    width: 100%;
+    line-height: 2.2em;
+    text-indent: .8em;
+}
+#Alert .timer .close {
+    border: 1px inset #eee;
+    color: #ccc;
+    font-family: arial;
+    padding: .2em .3em 0;
+    right: .3em;
+    top: .2em;
+    line-height: 1.2em;
+    text-indent: 0;
+}
+#Alert .timer .close:hover {
+    background-color: #eee;
+    color: red;
+    cursor: pointer;
+}
+#Alert .main .text {
+    font-family: monospace;
+    top: 2em;
+    margin-bottom: 2em;
+    white-space: pre-line;
+    padding: 1em;
+    position: relative;
+}
+
+
