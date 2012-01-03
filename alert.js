@@ -1,17 +1,17 @@
 /** VERSION =============================================================== *
- *  hrs3143:Alert/main.js ^ david.turgeon @ wf ^ 2011-09-12 .. 2011-09-16
+ *  drt-alert.js  ^  dvdrtrgn  ^  2011-09-12 .. 2011-12-30
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /**
  * Like window alert with the added methods
  * @param msg {string} message
- * @param ms {number} time to display
+ * @param sec {number} time to display
  *
  * @2do: timer, an css class accessor
  */
-function Alert(msg, ms){
+function Alert(msg, sec){
     this.__ = 'drt__Alert';
     this._msg = msg || '';
-    this._ms = ms || this._ms;
+    this._sec = sec || this._sec;
 
     var me = this
     ,   _  = me._
@@ -21,8 +21,7 @@ function Alert(msg, ms){
     _.base.append(_.cover).append(_.main).appendTo('body');
 
     if (msg) {
-        me.show();
-        me.time();
+        me.show().time();
     }
 
     // handlers to cancel overlay
@@ -35,12 +34,12 @@ function Alert(msg, ms){
             me.hide()
     });
 }
-Alert.prototype = {
+$.extend(Alert.prototype, {
     __ : 'Alert', /*
      * message @type string */
     _msg : null,
-    _ms : 3333,
-     _ : {  // construct elements as "_"
+    _sec : 3,
+    _ : {  // construct elements as "_"
         base :  $('<div id="Alert"></div>'),
         cover:  $('<div class="cover"></div>'),
         main:   $('<div class="main"></div>'),
@@ -61,7 +60,9 @@ Alert.prototype = {
         this._.base[b?'show':'hide']();
     },
     read : function (){ // reset message and style
-        this._.timer.css({opacity:'1'});
+        this._.timer.css({
+            opacity:'1'
+        });
         this._.text.text(this._msg);
     },
     show : function (){
@@ -77,16 +78,16 @@ Alert.prototype = {
         me._.timer.stop();
         me._.timer.animate({
             opacity:'.1'
-        }, n || me._ms, 'linear', function (){
+        }, n || me._sec*1500, 'swing', function (){
             me.hide();
         });
         return me;
     }
-}
+});
 $.extend(Alert, {
     test : function (){
         new this('I show a test message for the default amount of time: '
-            + this.prototype._ms);
+            + this.prototype._sec);
     },
     init : function (){
         $.loadCssFor('alert');
