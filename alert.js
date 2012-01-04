@@ -1,6 +1,6 @@
 /** VERSION =============================================================== *
- *  drt-alert.js  ^  dvdrtrgn  ^  2011-09-12 .. 2011-12-30
- * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+ * js-alert.js  ^  dvdrtrgn  ^  2011-09-12 .. 2012-01-04
+* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /**
  * Like window alert with the added methods
  * @param msg {string} message
